@@ -24,13 +24,6 @@ public class ExploreFragment extends Fragment {
         exploreViewModel =
                 ViewModelProviders.of(this).get(ExploreViewModel.class);
         View root = inflater.inflate(R.layout.fragment_explore, container, false);
-        final TextView textView = root.findViewById(R.id.tvExplore);
-        exploreViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }
