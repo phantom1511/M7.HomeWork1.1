@@ -1,15 +1,15 @@
-package com.dastan.m7homework11.ui.explore;
+package com.dastan.m7homework11.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ExploreViewModel extends ViewModel {
+public class SettingsViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public ExploreViewModel() {
+    public SettingsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Explore");
+        mText.setValue("Profile");
     }
 
     public LiveData<String> getText(){
