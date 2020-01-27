@@ -1,6 +1,5 @@
-package com.dastan.m7homework11.ui.explore;
+package com.dastan.m7homework11.ui.main;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 

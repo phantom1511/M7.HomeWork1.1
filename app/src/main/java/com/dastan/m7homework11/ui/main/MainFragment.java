@@ -1,4 +1,4 @@
-package com.dastan.m7homework11.ui.explore;
+package com.dastan.m7homework11.ui.main;
 
 
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.ui.map.HistoryViewModel;
 
 
 public class MainFragment extends Fragment {

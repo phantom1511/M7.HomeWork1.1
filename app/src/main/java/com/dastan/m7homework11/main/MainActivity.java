@@ -6,20 +6,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.ui.explore.MainFragment;
-import com.dastan.m7homework11.ui.explore.MainViewModel;
-import com.dastan.m7homework11.ui.map.HistoryFragment;
-import com.dastan.m7homework11.ui.profile.SettingsFragment;
+import com.dastan.m7homework11.ui.main.MainFragment;
+import com.dastan.m7homework11.ui.main.MainViewModel;
+import com.dastan.m7homework11.ui.history.HistoryFragment;
+import com.dastan.m7homework11.ui.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.navigation_explore:
+                    case R.id.navigation_main:
                         viewPager.setCurrentItem(0);
                         return true;
-                    case R.id.navigation_map:
+                    case R.id.navigation_history:
                         viewPager.setCurrentItem(1);
                         return true;
-                    case R.id.navigation_profile:
+                    case R.id.navigation_settings:
                         viewPager.setCurrentItem(2);
                         return true;
                 }
@@ -65,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        navView.getMenu().findItem(R.id.navigation_explore).setChecked(true);
+                        navView.getMenu().findItem(R.id.navigation_main).setChecked(true);
                         break;
                     case 1:
-                        navView.getMenu().findItem(R.id.navigation_map).setChecked(true);
+                        navView.getMenu().findItem(R.id.navigation_history).setChecked(true);
                         break;
                     case 2:
-                        navView.getMenu().findItem(R.id.navigation_profile).setChecked(true);
+                        navView.getMenu().findItem(R.id.navigation_settings).setChecked(true);
                         break;
                 }
             }

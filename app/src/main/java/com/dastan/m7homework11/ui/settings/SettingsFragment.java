@@ -1,20 +1,16 @@
-package com.dastan.m7homework11.ui.profile;
+package com.dastan.m7homework11.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.ui.explore.MainFragment;
-import com.dastan.m7homework11.ui.map.HistoryViewModel;
 
 
 public class SettingsFragment extends Fragment {

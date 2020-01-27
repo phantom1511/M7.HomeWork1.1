@@ -1,4 +1,4 @@
-package com.dastan.m7homework11.ui.map;
+package com.dastan.m7homework11.ui.history;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,13 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.ui.explore.MainFragment;
-import com.dastan.m7homework11.ui.explore.MainViewModel;
+import com.dastan.m7homework11.ui.main.MainViewModel;
 
 
 public class HistoryFragment extends Fragment {
@@ -35,7 +33,7 @@ public class HistoryFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
-        result = view.findViewById(R.id.tvMap);
+        result = view.findViewById(R.id.tvHistory);
 
         return view;
     }
