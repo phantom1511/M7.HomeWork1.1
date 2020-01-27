@@ -11,12 +11,12 @@ public class MainViewModel extends ViewModel {
 
     }
 
-    public void addOne(){
+    public void increment(){
         count++;
         counter.setValue(count);
     }
 
-    public void minusOne(){
+    public void decrement(){
         count--;
         counter.setValue(count);
     }

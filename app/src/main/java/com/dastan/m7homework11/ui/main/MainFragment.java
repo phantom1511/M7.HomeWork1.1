@@ -37,14 +37,14 @@ public class MainFragment extends Fragment {
         btnOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainViewModel.addOne();
+                mainViewModel.increment();
             }
         });
 
         btnTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainViewModel.minusOne();
+                mainViewModel.decrement();
             }
         });
         return view;
