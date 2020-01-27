@@ -1,5 +1,6 @@
 package com.dastan.m7homework11.ui.history;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -29,8 +30,8 @@ public class HistoryFragment extends Fragment {
     private HistoryViewModel historyViewModel;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         result = view.findViewById(R.id.tvHistory);
@@ -39,17 +40,17 @@ public class HistoryFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
        // historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
-        mainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
+        mainViewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(MainViewModel.class);
 
-        mainViewModel.counter.observe(this, new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                Log.d("ololo", " history " + integer);
-                result.setText(integer.toString());
-            }
-        });
+//        mainViewModel.counter.observe(this, new Observer<Integer>() {
+//            @Override
+//            public void onChanged(Integer integer) {
+//                Log.d("ololo", " history " + integer);
+//                result.setText(integer.toString());
+//            }
+//        });
     }
 }

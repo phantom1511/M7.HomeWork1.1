@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginTop32">32sp</dimen>
+    <dimen name="paddingStart24">24sp</dimen>
+    <dimen name="marginTopImg">29sp</dimen>
+    <dimen name="marginTop39">39sp</dimen>
+    <dimen name="marginTop17">17dp</dimen>
+    <dimen name="marginTop23">23sp</dimen>
+    <dimen name="marginTop64">64sp</dimen>
+</resources>
