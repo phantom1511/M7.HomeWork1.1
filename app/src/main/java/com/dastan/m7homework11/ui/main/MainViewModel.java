@@ -11,13 +11,13 @@ public class MainViewModel extends ViewModel {
 
     }
 
-    public void increment(){
-        count++;
-        counter.setValue(count);
-    }
-
-    public void decrement(){
-        count--;
-        counter.setValue(count);
-    }
+//    public void increment(){
+//        count++;
+//        counter.setValue(count);
+//    }
+//
+//    public void decrement(){
+//        count--;
+//        counter.setValue(count);
+//    }
 }

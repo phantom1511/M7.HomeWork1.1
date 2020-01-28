@@ -36,7 +36,7 @@
         <item name="android:layout_height">48sp</item>
     </style>
 
-    <style name="Button">
+    <style name="btnStart">
         <item name="android:layout_width">200sp</item>
         <item name="android:layout_height">48sp</item>
         <item name="android:textColor">@color/colorWhite</item>

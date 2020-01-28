@@ -1,6 +1,5 @@
 package com.dastan.m7homework11.ui.history;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -43,7 +43,7 @@ public class HistoryFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
        // historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
-        mainViewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(MainViewModel.class);
+        mainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
 
 //        mainViewModel.counter.observe(this, new Observer<Integer>() {
 //            @Override
