@@ -116,24 +116,47 @@ public class MainFragment extends Fragment {
         categoryList = new ArrayList<>();
         difficultyList = new ArrayList<>();
 
+        categoryList.add("All");
         categoryList.add("Science");
         categoryList.add("Sport");
         categoryList.add("Cars");
         categoryList.add("Math");
         categoryList.add("Geographic");
 
-        difficultyList.add("easy");
-        difficultyList.add("medium");
-        difficultyList.add("hard");
+        difficultyList.add("All");
+        difficultyList.add("Easy");
+        difficultyList.add("Medium");
+        difficultyList.add("Hard");
 
-        ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, categoryList );
+        ArrayAdapter<String> adapterCategory;
+        adapterCategory = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, categoryList );
+        ArrayAdapter<String> adapterDifficulty;
+        adapterDifficulty = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, difficultyList);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(adapter);
-        spinnerDifficulty.setAdapter(adapter);
+        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(adapterCategory);
+        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDifficulty.setAdapter(adapterDifficulty);
 
         spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Choose Category")){
+
+                }else {
+                    String item = parent.getItemAtPosition(position).toString();
+
+                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerDifficulty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getItemAtPosition(position).equals("Choose Category")){
