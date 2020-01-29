@@ -3,7 +3,6 @@ package com.dastan.m7homework11.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +12,14 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.data.remote.IQuizApiClient;
-import com.dastan.m7homework11.main.QuizActivity;
-import com.dastan.m7homework11.model.Question;
+import com.dastan.m7homework11.ui.quiz.QuizActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,11 +126,11 @@ public class MainFragment extends Fragment {
         ArrayAdapter<String> adapterCategory;
         adapterCategory = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, categoryList );
         ArrayAdapter<String> adapterDifficulty;
-        adapterDifficulty = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, difficultyList);
+        adapterDifficulty = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, difficultyList );
 
         adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(adapterCategory);
-        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDifficulty.setAdapter(adapterDifficulty);
 
         spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

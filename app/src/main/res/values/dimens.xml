@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginTop32">28sp</dimen>
+    <dimen name="marginTop32">28dp</dimen>
     <dimen name="paddingStart24">24dp</dimen>
-    <dimen name="marginTopImg">20sp</dimen>
-    <dimen name="marginTop39">30sp</dimen>
+    <dimen name="marginTopImg">20dp</dimen>
+    <dimen name="marginTop39">30dp</dimen>
     <dimen name="marginTop17">12dp</dimen>
-    <dimen name="marginTop23">8sp</dimen>
-    <dimen name="marginTop64">64sp</dimen>
+    <dimen name="marginTop23">8dp</dimen>
+    <dimen name="marginTop64">64dp</dimen>
 </resources>

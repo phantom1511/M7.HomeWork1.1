@@ -1,4 +1,4 @@
-package com.dastan.m7homework11.main;
+package com.dastan.m7homework11.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

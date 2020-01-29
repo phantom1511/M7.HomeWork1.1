@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -31,15 +31,15 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
-    <style name="spinner">
-        <item name="android:layout_width">240sp</item>
-        <item name="android:layout_height">48sp</item>
+    <style name="MainFragmentSpinner">
+        <item name="android:layout_width">240dp</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:background">@drawable/spinner</item>
     </style>
 
-    <style name="btnStart">
-        <item name="android:layout_width">200sp</item>
-        <item name="android:layout_height">48sp</item>
+    <style name="ButtonStart">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/sfprodisplay_regular</item>
         <item name="android:textSize">15sp</item>
