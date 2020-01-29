@@ -31,9 +31,10 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
-    <style name="Spinner">
+    <style name="spinner">
         <item name="android:layout_width">240sp</item>
         <item name="android:layout_height">48sp</item>
+        <item name="android:background">@drawable/spinner</item>
     </style>
 
     <style name="btnStart">

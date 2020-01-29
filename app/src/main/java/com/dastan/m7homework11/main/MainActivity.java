@@ -38,29 +38,29 @@ public class MainActivity extends AppCompatActivity {
         navView = findViewById(R.id.bottomNavView);
         viewPager = findViewById(R.id.view_pager);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(android.R.id.content, new MainFragment())
-                .commit();
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .add(android.R.id.content, new MainFragment())
+//                .commit();
 
         mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mainPagerAdapter);
         setBottomNavView();
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-
-        QuizApp.quizApiClient.getQuestions(new IQuizApiClient.QuestionsCallback() {
-            @Override
-            public void onSuccess(List<Question> questions) {
-                for (Question question : questions) {
-                    Log.e("ron", question.getQuestion() + " " + question.getCategory());
-                }
-            }
-
-            @Override
-            public void onFailure(Exception e) {
-                Log.e("ron", e.getMessage());
-            }
-        });
+//        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+//
+//        QuizApp.quizApiClient.getQuestions(new IQuizApiClient.QuestionsCallback() {
+//            @Override
+//            public void onSuccess(List<Question> questions) {
+//                for (Question question : questions) {
+//                    Log.e("ron", question.getQuestion() + " " + question.getCategory());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Exception e) {
+//                Log.e("ron", e.getMessage());
+//            }
+//        });
     }
 
     private void setBottomNavView(){

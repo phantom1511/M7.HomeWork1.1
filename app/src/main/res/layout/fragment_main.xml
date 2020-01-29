@@ -104,13 +104,14 @@
         android:padding="2dp"
         android:layout_marginTop="@dimen/marginTop23"
         app:layout_constraintTop_toBottomOf="@id/seekBar"
-        app:layout_constraintStart_toStartOf="@id/seekBar"
+        app:layout_constraintStart_toStartOf="@id/spCategory"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Spinner
         android:id="@+id/spCategory"
-        style="@style/Spinner"
+        style="@style/spinner"
         android:layout_marginTop="5sp"
+        android:background="@drawable/spinner_icon"
         app:layout_constraintTop_toBottomOf="@id/tvCategory"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -124,13 +125,14 @@
         android:padding="2dp"
         android:layout_marginTop="@dimen/marginTop23"
         app:layout_constraintTop_toBottomOf="@id/spCategory"
-        app:layout_constraintStart_toStartOf="@id/seekBar"
+        app:layout_constraintStart_toStartOf="@id/spDifficulty"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Spinner
         android:id="@+id/spDifficulty"
-        style="@style/Spinner"
+        style="@style/spinner"
         android:layout_marginTop="5sp"
+        android:background="@drawable/spinner_icon"
         app:layout_constraintTop_toBottomOf="@id/tvDifficulty"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>

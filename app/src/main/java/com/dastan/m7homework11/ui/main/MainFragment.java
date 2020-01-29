@@ -3,6 +3,7 @@ package com.dastan.m7homework11.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
+import com.dastan.m7homework11.data.remote.IQuizApiClient;
 import com.dastan.m7homework11.main.QuizActivity;
+import com.dastan.m7homework11.model.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +55,7 @@ public class MainFragment extends Fragment {
         initViews();
         initListeners();
         setSpinner();
+
 //        btnOne = view.findViewById(R.id.btnOne);
 //        btnTwo = view.findViewById(R.id.btnTwo);
 //
@@ -136,7 +141,7 @@ public class MainFragment extends Fragment {
                 }else {
                     String item = parent.getItemAtPosition(position).toString();
 
-                    Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
                 }
             }
 
