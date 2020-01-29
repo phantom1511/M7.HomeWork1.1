@@ -9,14 +9,20 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
+import com.dastan.m7homework11.data.remote.IQuizApiClient;
+import com.dastan.m7homework11.model.Question;
 import com.dastan.m7homework11.ui.main.MainFragment;
 import com.dastan.m7homework11.ui.main.MainViewModel;
 import com.dastan.m7homework11.ui.history.HistoryFragment;
 import com.dastan.m7homework11.ui.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,10 +38,29 @@ public class MainActivity extends AppCompatActivity {
         navView = findViewById(R.id.bottomNavView);
         viewPager = findViewById(R.id.view_pager);
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(android.R.id.content, new MainFragment())
+                .commit();
+
         mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mainPagerAdapter);
         setBottomNavView();
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+
+        QuizApp.quizApiClient.getQuestions(new IQuizApiClient.QuestionsCallback() {
+            @Override
+            public void onSuccess(List<Question> questions) {
+                for (Question question : questions) {
+                    Log.e("ron", question.getQuestion() + " " + question.getCategory());
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.e("ron", e.getMessage());
+            }
+        });
     }
 
     private void setBottomNavView(){
