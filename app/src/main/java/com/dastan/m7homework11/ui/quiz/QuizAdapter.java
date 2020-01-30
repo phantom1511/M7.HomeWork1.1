@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
+import com.dastan.m7homework11.model.Question;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder>{
-    private List<QuizApp> list;
+    private List<Question> list = new ArrayList<>();
 
     public QuizAdapter() {
         this.list = list;
@@ -29,8 +31,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull QuizViewHolder holder, int position) {
-        //holder.bind(list.get(position));
-        list.get(position);
+        holder.bind(list.get(position));
     }
 
     @Override
@@ -46,7 +47,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
             super(itemView);
         }
 
-        public void bind(QuizApp quizApp) {
+        public void bind(Question question) {
 
         }
     }

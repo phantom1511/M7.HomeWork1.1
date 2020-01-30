@@ -19,18 +19,20 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        initViews();
+        setRecyclerView();
+
     }
 
-//    private void initViews() {
-//        recyclerView = findViewById(R.id.rvQuizActivity);
-//    }
-//
-//    private void setRecyclerView() {
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        quizAdapter = new QuizAdapter();
-//        recyclerView.setAdapter(quizAdapter);
-//
-//    }
+    private void initViews() {
+        recyclerView = findViewById(R.id.rvQuizActivity);
+    }
+
+    private void setRecyclerView() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        quizAdapter = new QuizAdapter();
+        recyclerView.setAdapter(quizAdapter);
+    }
 }
