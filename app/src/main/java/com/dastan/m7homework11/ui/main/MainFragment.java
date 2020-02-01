@@ -21,7 +21,12 @@ import androidx.lifecycle.ViewModelProviders;
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.ui.quiz.QuizActivity;
 
+import org.angmarch.views.NiceSpinner;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -39,8 +44,9 @@ public class MainFragment extends Fragment {
     private View view;
     private SeekBar seekBar;
     private TextView questionAmount;
-    private Spinner spinnerCategory, spinnerDifficulty;
+    private NiceSpinner spinnerCategory, spinnerDifficulty;
     private List<String> categoryList, difficultyList;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -49,7 +55,10 @@ public class MainFragment extends Fragment {
 
         initViews();
         initListeners();
-        setSpinner();
+        setSpinner(getResources().getStringArray(R.array.categories_list), spinnerCategory);
+        setSpinner(getResources().getStringArray(R.array.difficult_list), spinnerDifficulty);
+
+
 
 //        btnOne = view.findViewById(R.id.btnOne);
 //        btnTwo = view.findViewById(R.id.btnTwo);
@@ -83,8 +92,9 @@ public class MainFragment extends Fragment {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), QuizActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), QuizActivity.class);
+//                startActivity(intent);
+                sentData();
             }
         });
 
@@ -107,67 +117,94 @@ public class MainFragment extends Fragment {
         });
     }
 
-    private void setSpinner() {
-        categoryList = new ArrayList<>();
-        difficultyList = new ArrayList<>();
+    private void setSpinner(String[] array, NiceSpinner niceSpinner) {
 
-        categoryList.add("All");
-        categoryList.add("Science");
-        categoryList.add("Sport");
-        categoryList.add("Cars");
-        categoryList.add("Math");
-        categoryList.add("Geographic");
+        List<String> list = new LinkedList<>(Arrays.asList(array));
+        niceSpinner.attachDataSource(list);
+//        categoryList = new ArrayList<>();
+//        difficultyList = new ArrayList<>();
+//
+//
+//
+//        categoryList.add(getResources().getStringArray(R.array.categories_list));
+//        categoryList.add("Science");
+//        categoryList.add("Sport");
+//        categoryList.add("Cars");
+//        categoryList.add("Math");
+//        categoryList.add("Geographic");
+//
+//        difficultyList.add("All");
+//        difficultyList.add("Easy");
+//        difficultyList.add("Medium");
+//        difficultyList.add("Hard");
+//
+//        ArrayAdapter<String> adapterCategory;
+//        adapterCategory = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, categoryList );
+//        ArrayAdapter<String> adapterDifficulty;
+//        adapterDifficulty = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, difficultyList );
+//
+//        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerCategory.setAdapter(adapterCategory);
+//        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerDifficulty.setAdapter(adapterDifficulty);
+//
+//        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (parent.getItemAtPosition(position).equals("Choose Category")){
+//
+//                }else {
+//                    String item = parent.getItemAtPosition(position).toString();
+//
+//                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//
+//        spinnerDifficulty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (parent.getItemAtPosition(position).equals("Choose Category")){
+//
+//                }else {
+//                    String item = parent.getItemAtPosition(position).toString();
+//
+//                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+    }
 
-        difficultyList.add("All");
-        difficultyList.add("Easy");
-        difficultyList.add("Medium");
-        difficultyList.add("Hard");
+    private void sentData(){
+        int amount = seekBar.getProgress();
+        Integer category = spinnerCategory.getSelectedIndex() + 8;
+        String difficulty = null;
 
-        ArrayAdapter<String> adapterCategory;
-        adapterCategory = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, categoryList );
-        ArrayAdapter<String> adapterDifficulty;
-        adapterDifficulty = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, difficultyList );
-
-        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(adapterCategory);
-        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDifficulty.setAdapter(adapterDifficulty);
-
-        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Choose Category")){
-
-                }else {
-                    String item = parent.getItemAtPosition(position).toString();
-
-                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        spinnerDifficulty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Choose Category")){
-
-                }else {
-                    String item = parent.getItemAtPosition(position).toString();
-
-                    //Toast.makeText(parent.getContext(), "Selected " + item, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        switch (spinnerDifficulty.getSelectedIndex()) {
+            case 1:
+                difficulty = null;
+                break;
+            case 2:
+                difficulty = "easy" ;
+                break;
+            case 3:
+                difficulty = "medium";
+                break;
+            case 4:
+                difficulty = "hard";
+                break;
+        }
+        QuizActivity.start(getContext(), amount, category, difficulty);
     }
 
     @Override

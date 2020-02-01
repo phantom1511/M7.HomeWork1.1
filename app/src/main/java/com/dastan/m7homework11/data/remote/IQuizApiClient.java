@@ -5,7 +5,7 @@ import com.dastan.m7homework11.model.Question;
 import java.util.List;
 
 public interface IQuizApiClient {
-    void getQuestions(QuestionsCallback callback);
+    void getQuestions(int amount, Integer category, String difficulty, QuestionsCallback callback);
 
     public interface QuestionsCallback {
         void onSuccess(List<Question> questions);

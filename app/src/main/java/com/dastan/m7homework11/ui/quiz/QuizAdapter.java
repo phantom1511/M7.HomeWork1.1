@@ -18,6 +18,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
     private List<Question> list = new ArrayList<>();
 
     public QuizAdapter() {
+    }
+
+    public void setList(List<Question> list){
         this.list = list;
     }
 

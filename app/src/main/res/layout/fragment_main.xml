@@ -109,10 +109,11 @@
         app:layout_constraintStart_toStartOf="@id/spCategory"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <Spinner
+    <org.angmarch.views.NiceSpinner
         android:id="@+id/spCategory"
         style="@style/MainFragmentSpinner"
         android:layout_marginTop="5dp"
+        android:entries="@array/categories_list"
         android:background="@drawable/spinner_icon"
         app:layout_constraintTop_toBottomOf="@id/tvCategory"
         app:layout_constraintRight_toRightOf="parent"
@@ -130,10 +131,11 @@
         app:layout_constraintStart_toStartOf="@id/spDifficulty"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <Spinner
+    <org.angmarch.views.NiceSpinner
         android:id="@+id/spDifficulty"
         style="@style/MainFragmentSpinner"
         android:layout_marginTop="5dp"
+        android:entries="@array/difficult_list"
         android:background="@drawable/spinner_icon"
         app:layout_constraintTop_toBottomOf="@id/tvDifficulty"
         app:layout_constraintRight_toRightOf="parent"
