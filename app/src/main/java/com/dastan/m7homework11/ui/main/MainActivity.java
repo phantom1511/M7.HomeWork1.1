@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mainPagerAdapter);
         setBottomNavView();
+
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+
+        mainViewModel.getCategory();
+        mainViewModel.getCount(9);
+        mainViewModel.getGlobal();
 //        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 //
 //        QuizApp.quizApiClient.getQuestions(new IQuizApiClient.QuestionsCallback() {

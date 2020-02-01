@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Question {
-    private String categery;
+    private String category;
     private String type;
     private EDifficulty difficulty;
     private String question;
@@ -15,7 +15,7 @@ public class Question {
     private List<String> incorrectAnswer;
 
     public Question(String category, String type, EDifficulty difficulty, String question, String correctAnswer, List<String> incorrectAnswer) {
-        this.categery = category;
+        this.category = category;
         this.type = type;
         this.difficulty = difficulty;
         this.question = question;
@@ -24,11 +24,11 @@ public class Question {
     }
 
     public String getCategory() {
-        return categery;
+        return category;
     }
 
-    public void setCategery(String categery) {
-        this.categery = categery;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getType() {
