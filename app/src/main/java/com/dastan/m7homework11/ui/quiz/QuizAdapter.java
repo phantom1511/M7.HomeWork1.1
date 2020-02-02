@@ -7,9 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.model.Question;
+import com.dastan.m7homework11.data.model.Question;
 
 import java.util.ArrayList;
 import java.util.List;

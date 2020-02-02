@@ -1,6 +1,6 @@
 package com.dastan.m7homework11.data.remote;
 
-import com.dastan.m7homework11.model.Categoty;
+import com.dastan.m7homework11.data.model.Categoty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

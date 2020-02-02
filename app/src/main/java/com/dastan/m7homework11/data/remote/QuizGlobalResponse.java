@@ -1,10 +1,8 @@
 package com.dastan.m7homework11.data.remote;
 
-import com.dastan.m7homework11.model.Global;
-import com.dastan.m7homework11.model.Question;
+import com.dastan.m7homework11.data.model.Global;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
 import java.util.Map;
 
 public class QuizGlobalResponse {

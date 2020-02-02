@@ -9,20 +9,12 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
-import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.data.remote.IQuizApiClient;
-import com.dastan.m7homework11.model.Question;
-import com.dastan.m7homework11.ui.main.MainFragment;
-import com.dastan.m7homework11.ui.main.MainViewModel;
 import com.dastan.m7homework11.ui.history.HistoryFragment;
 import com.dastan.m7homework11.ui.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_map___inactive"
+        android:icon="@drawable/ic_map_inactive"
         android:title="" />
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_profile___inactive"
+        android:icon="@drawable/ic_profile_inactive"
         android:title="" />
 
 </menu>

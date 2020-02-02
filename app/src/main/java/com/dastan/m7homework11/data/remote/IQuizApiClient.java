@@ -1,12 +1,8 @@
 package com.dastan.m7homework11.data.remote;
 
-import android.icu.util.ULocale;
-
 import com.dastan.m7homework11.core.ICoreCallback;
-import com.dastan.m7homework11.model.Categoty;
-import com.dastan.m7homework11.model.Global;
-import com.dastan.m7homework11.model.Question;
-import com.dastan.m7homework11.model.QuestionCount;
+import com.dastan.m7homework11.data.model.Categoty;
+import com.dastan.m7homework11.data.model.Question;
 
 import java.util.List;
 

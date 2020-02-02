@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.data.remote.IQuizApiClient;
-import com.dastan.m7homework11.model.Question;
+import com.dastan.m7homework11.data.model.Question;
 
 import java.util.List;
 

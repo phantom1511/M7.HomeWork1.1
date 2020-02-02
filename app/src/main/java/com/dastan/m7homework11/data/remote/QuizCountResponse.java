@@ -1,6 +1,6 @@
 package com.dastan.m7homework11.data.remote;
 
-import com.dastan.m7homework11.model.QuestionCount;
+import com.dastan.m7homework11.data.model.QuestionCount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.dastan.m7homework11.model;
+package com.dastan.m7homework11.data.model;
 
 public class Categoty {
     private int id;

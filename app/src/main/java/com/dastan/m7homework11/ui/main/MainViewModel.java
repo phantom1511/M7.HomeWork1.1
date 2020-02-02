@@ -7,7 +7,7 @@ import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.data.remote.IQuizApiClient;
 import com.dastan.m7homework11.data.remote.QuizCountResponse;
 import com.dastan.m7homework11.data.remote.QuizGlobalResponse;
-import com.dastan.m7homework11.model.Categoty;
+import com.dastan.m7homework11.data.model.Categoty;
 
 import java.util.List;
 

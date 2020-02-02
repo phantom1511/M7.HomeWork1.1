@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.R;
-import com.dastan.m7homework11.model.Question;
+import com.dastan.m7homework11.data.model.Question;
+import com.dastan.m7homework11.ui.main.MainFragment;
 
 import java.util.List;
 

@@ -3,6 +3,7 @@ package com.dastan.m7homework11.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.ui.quiz.QuizActivity;
+import com.dastan.m7homework11.utils.SimpleSeekBarChangeListener;
 
 import org.angmarch.views.NiceSpinner;
 
@@ -95,26 +97,34 @@ public class MainFragment extends Fragment {
 //                Intent intent = new Intent(getContext(), QuizActivity.class);
 //                startActivity(intent);
                 sentData();
+
             }
         });
 
         questionAmount.setText(String.valueOf(seekBar.getProgress()));
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekBar.setOnSeekBarChangeListener(new SimpleSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 questionAmount.setText(String.valueOf(progress));
             }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
         });
+
+//        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                questionAmount.setText(String.valueOf(progress));
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//        });
     }
 
     private void setSpinner(String[] array, NiceSpinner niceSpinner) {
@@ -204,7 +214,14 @@ public class MainFragment extends Fragment {
                 difficulty = "hard";
                 break;
         }
+
+        if (category < 9){
+            category = null;
+        } else {
+            category = spinnerCategory.getSelectedIndex() + 8;
+        }
         QuizActivity.start(getContext(), amount, category, difficulty);
+        Log.e("ron", amount + " " + category + " " + difficulty);
     }
 
     @Override
