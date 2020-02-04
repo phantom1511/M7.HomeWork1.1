@@ -45,4 +45,10 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="HistoryCategoryTextView">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/sfprodisplay_bold</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
 </resources>
