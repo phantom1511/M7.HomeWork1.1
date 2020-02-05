@@ -19,6 +19,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TitleTextQuizActivity" parent="TitleText">
+        <item name="android:textSize">17dp</item>
+    </style>
+
     <style name="RegularText">
         <item name="android:fontFamily">@font/sfprodisplay_regular</item>
         <item name="android:textSize">12sp</item>
@@ -49,6 +53,26 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:fontFamily">@font/sfprodisplay_bold</item>
         <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="ButtonSkip">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/sfprodisplay_bold</item>
+        <item name="android:background">@drawable/skip_button</item>
+    </style>
+
+    <style name="QuizQuestion">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">@font/sfprodisplay_regular</item>
+    </style>
+
+    <style name="ButtonAnswer">
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/sfprodisplay_regular</item>
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:background">@drawable/answer_button</item>
     </style>
 
 </resources>

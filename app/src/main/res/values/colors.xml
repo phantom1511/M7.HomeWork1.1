@@ -9,4 +9,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#6979F8</color>
     <color name="colorBg">#D2CFCF</color>
+    <color name="colorSkipBtn">#FF6581</color>
 </resources>

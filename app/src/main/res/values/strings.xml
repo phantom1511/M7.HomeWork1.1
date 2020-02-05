@@ -7,6 +7,7 @@
     <string name="category">Category</string>
     <string name="start">Start</string>
     <string name="difficulty">Difficulty</string>
+    <string name="skipBtn">skip</string>
 
     <string-array name="categories_list">
         <item>All</item>

@@ -1,5 +1,10 @@
 package com.dastan.m7homework11.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,9 +12,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.ui.history.HistoryFragment;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MainPagerAdapter mainPagerAdapter;
     private MainViewModel mainViewModel;
+
+    public static void start(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
-    private void setBottomNavView(){
+    private void setBottomNavView() {
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.navigation_main:
                         viewPager.setCurrentItem(0);
                         return true;

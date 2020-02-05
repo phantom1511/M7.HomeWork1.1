@@ -10,14 +10,15 @@ import com.dastan.m7homework11.data.model.Question;
 import java.util.List;
 
 public class QuizViewModel extends ViewModel {
-    public MutableLiveData<List<Question>> mutableLiveData = new MutableLiveData<>();
-    public int count = 0;
+    public MutableLiveData<List<Question>> questions = new MutableLiveData<>();
+    public MutableLiveData<Integer> position = new MutableLiveData<>();
+    public Integer count;
 
     public void fetchQuestions(int amount, Integer category, String difficulty){
         QuizApp.quizApiClient.getQuestions(amount, category, difficulty, new IQuizApiClient.QuestionsCallback() {
             @Override
             public void onSuccess(List<Question> questions) {
-                mutableLiveData.postValue(questions);
+                QuizViewModel.this.questions.postValue(questions);
             }
 
             @Override
@@ -29,6 +30,15 @@ public class QuizViewModel extends ViewModel {
     }
 
     public QuizViewModel() {
+        position.setValue(1);
+        count = 1;
+    }
 
+    public void nextPage(){
+        position.setValue(++count);
+    }
+
+    public void backPage(){
+        position.setValue(--count);
     }
 }
