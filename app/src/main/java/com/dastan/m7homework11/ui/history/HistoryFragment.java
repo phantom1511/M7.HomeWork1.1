@@ -1,24 +1,18 @@
 package com.dastan.m7homework11.ui.history;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.ui.main.MainViewModel;
-import com.dastan.m7homework11.ui.quiz.QuizAdapter;
 
 import java.util.ArrayList;
 

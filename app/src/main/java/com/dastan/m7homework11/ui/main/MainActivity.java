@@ -135,4 +135,18 @@ public class MainActivity extends AppCompatActivity {
             return 3;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        switch (viewPager.getCurrentItem()){
+            case 2:
+                viewPager.setCurrentItem(1);
+                break;
+            case 1:
+                viewPager.setCurrentItem(0);
+                break;
+            case 0:
+                super.onBackPressed();
+        }
+    }
 }

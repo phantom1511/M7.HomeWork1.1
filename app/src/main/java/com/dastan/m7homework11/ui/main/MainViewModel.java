@@ -65,8 +65,12 @@ public class MainViewModel extends ViewModel {
         });
     }
 
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
 
-//    public void increment(){
+    //    public void increment(){
 //        count++;
 //        counter.setValue(count);
 //    }

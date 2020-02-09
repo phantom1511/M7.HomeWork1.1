@@ -10,8 +10,10 @@ import com.dastan.m7homework11.R;
 
 public class ResultActivity extends AppCompatActivity {
 
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, ResultActivity.class));
+    private static String RESULT_ID = "result_id";
+
+    public static void start(Context context, Integer integer) {
+        context.startActivity(new Intent(context, ResultActivity.class).putExtra(RESULT_ID, integer));
 }
 
     @Override

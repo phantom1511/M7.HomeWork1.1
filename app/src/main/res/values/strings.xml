@@ -8,6 +8,7 @@
     <string name="start">Start</string>
     <string name="difficulty">Difficulty</string>
     <string name="skipBtn">skip</string>
+    <string name="finishBtn">finish</string>
 
     <string-array name="categories_list">
         <item>All</item>

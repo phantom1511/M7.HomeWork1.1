@@ -6,8 +6,10 @@
     <color name="iconColor">#008577</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGrey">#A9A9A9</color>
+    <color name="colorDarkGrey">#535353</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#6979F8</color>
     <color name="colorBg">#D2CFCF</color>
     <color name="colorSkipBtn">#FF6581</color>
+    <color name="colorFinishBtn">#4CE2A7</color>
 </resources>

@@ -19,12 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.data.model.Question;
 import com.dastan.m7homework11.ui.main.MainActivity;
+import com.dastan.m7homework11.ui.quiz.recycler.QuizAdapter;
+import com.dastan.m7homework11.ui.quiz.recycler.QuizViewHolder;
 import com.dastan.m7homework11.ui.result.ResultActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Listener {
 
     private RecyclerView recyclerView;
     private QuizAdapter quizAdapter;
@@ -60,23 +62,10 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        quizViewModel.finishEvent.observe(this, aVoid -> finish());
+        quizViewModel.openResultEvent.observe(this, integer -> ResultActivity.start(this, integer));
 
-        amount = getIntent().getIntExtra(EXTRA_AMOUNT, 5);
-        categoty = getIntent().getIntExtra(EXTRA_CATEGORY, +8);
-        difficulty = getIntent().getStringExtra(EXTRA_DIFFICULTY);
-
-        quizAdapter.setList(new ArrayList<>());
-
-        quizViewModel.fetchQuestions(amount, categoty, difficulty);
-
-        quizViewModel.questions.observe(this, new Observer<List<Question>>() {
-            @Override
-            public void onChanged(List<Question> questions) {
-                quizAdapter.setList(questions);
-            }
-        });
-
-        getPosition();
+        getQuestion();
     }
 
     private void initViews() {
@@ -88,7 +77,7 @@ public class QuizActivity extends AppCompatActivity {
         backImg = findViewById(R.id.icBack);
     }
 
-    private void initListeners(){
+    private void initListeners() {
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,11 +93,31 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
+    private void getQuestion() {
+        amount = getIntent().getIntExtra(EXTRA_AMOUNT, 5);
+        categoty = getIntent().getIntExtra(EXTRA_CATEGORY, +8);
+        difficulty = getIntent().getStringExtra(EXTRA_DIFFICULTY);
+
+        if (categoty == 0) {
+            categoty = null;
+        }
+
+        quizAdapter.setList(new ArrayList<>());
+        quizViewModel.fetchQuestions(amount, categoty, difficulty);
+
+        quizViewModel.questions.observe(this, list -> {
+            questions = list;
+            quizAdapter.setQuestions(list);
+            getPosition();
+        });
+
+    }
+
     private void setRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        quizAdapter = new QuizAdapter();
+        quizAdapter = new QuizAdapter(this);
         recyclerView.setAdapter(quizAdapter);
         recyclerView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -128,7 +137,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void getPosition() {
-        quizViewModel.position.observe(this, new Observer<Integer>() {
+        quizViewModel.currentPosition.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
                 recyclerView.scrollToPosition(integer - 1);
@@ -143,19 +152,24 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void onSkip(View view) {
-        if (progressBar.getProgress() < amount){
-            quizViewModel.nextPage();
+        if (progressBar.getProgress() < amount) {
+            quizViewModel.onSkipClick();
         } else {
-            ResultActivity.start(this);
+            quizViewModel.finishEvent.call();
         }
     }
 
-    public void onBack(View view){
-        if (progressBar.getProgress() != 1){
-            quizViewModel.backPage();
+    public void onBack(View view) {
+        if (progressBar.getProgress() != 1) {
+            quizViewModel.onBackPressed();
         } else {
             MainActivity.start(this);
             finish();
         }
+    }
+
+    @Override
+    public void onAnswerClick(int position, int selectedAnswerPosition) {
+        quizViewModel.onAnswerClick(position, selectedAnswerPosition);
     }
 }

@@ -1,28 +1,42 @@
 package com.dastan.m7homework11.data.history;
 
+import androidx.lifecycle.LiveData;
+
+import com.dastan.m7homework11.data.model.QuizResult;
+import com.dastan.m7homework11.ui.result.ResultActivity;
+
+import java.util.List;
+
 public class HistoryStorage implements IHistoryStorage {
+
+
     @Override
-    public void onSave() {
+    public void save(QuizResult result) {
 
     }
 
     @Override
-    public void onDeleteHistory() {
+    public void delete(QuizResult result) {
 
     }
 
     @Override
-    public void onDeleteAll() {
+    public void deleteAll() {
 
     }
 
     @Override
-    public void getHistory() {
-
+    public QuizResult get(int id) {
+        return null;
     }
 
     @Override
-    public void getAll() {
+    public LiveData<List<QuizResult>> getAll() {
+        return null;
+    }
 
+    @Override
+    public int saveQuizResult(QuizResult result) {
+        return 0;
     }
 }
