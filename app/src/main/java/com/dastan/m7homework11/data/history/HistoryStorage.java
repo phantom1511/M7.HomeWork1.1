@@ -11,23 +11,13 @@ public class HistoryStorage implements IHistoryStorage {
 
 
     @Override
-    public void save(QuizResult result) {
-
-    }
-
-    @Override
-    public void delete(QuizResult result) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
-
-    @Override
-    public QuizResult get(int id) {
+    public QuizResult getQuizResult(int id) {
         return null;
+    }
+
+    @Override
+    public int saveQuizResult(QuizResult quizResult) {
+        return 0;
     }
 
     @Override
@@ -36,7 +26,12 @@ public class HistoryStorage implements IHistoryStorage {
     }
 
     @Override
-    public int saveQuizResult(QuizResult result) {
-        return 0;
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 }

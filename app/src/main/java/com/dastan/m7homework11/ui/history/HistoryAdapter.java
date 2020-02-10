@@ -26,6 +26,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         list.add("history1");
         list.add("history2");
         list.add("history3");
+        list.add("history3");
+        list.add("history3");
+        list.add("history3");
+        list.add("history3");
     }
 
     @NonNull

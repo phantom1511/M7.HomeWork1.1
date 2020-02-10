@@ -13,20 +13,30 @@ import java.util.List;
 
 @Dao
 public interface IHistoryStorage {
-    @Insert
-    void save(QuizResult result);
 
-    @Delete
-    void delete(QuizResult result);
+    QuizResult getQuizResult(int id);
 
-    @Query("DELETE FROM quizresult")
-    void deleteAll();
+    int saveQuizResult(QuizResult quizResult);
 
-    @Query("SELECT * FROM quizresult WHERE id=:id")
-    QuizResult get(int id);
-
-    @Query("SELECT * FROM QuizResult")
     LiveData<List<QuizResult>> getAll();
 
-    int saveQuizResult(QuizResult result);
+    void delete(int id);
+
+    void deleteAll();
+//    @Insert
+//    void save(QuizResult result);
+//
+//    @Delete
+//    void delete(QuizResult result);
+//
+//    @Query("DELETE FROM quizresult")
+//    void deleteAll();
+//
+//    @Query("SELECT * FROM quizresult WHERE id=:id")
+//    QuizResult get(int id);
+//
+//    @Query("SELECT * FROM QuizResult")
+//    LiveData<List<QuizResult>> getAll();
+//
+//    int saveQuizResult(QuizResult result);
 }

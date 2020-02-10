@@ -6,30 +6,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.R;
+import com.dastan.m7homework11.core.CoreFragment;
 import com.dastan.m7homework11.ui.main.MainViewModel;
 
 import java.util.ArrayList;
 
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends CoreFragment {
 
     private TextView result;
     private MainViewModel mainViewModel;
     private RecyclerView recyclerView;
     private HistoryAdapter historyAdapter;
     private View view;
+    private HistoryViewModel historyViewModel;
 
     public static HistoryFragment newInstance(){
         return new HistoryFragment();
     }
 
-    private HistoryViewModel historyViewModel;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_history;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

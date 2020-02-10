@@ -68,27 +68,22 @@ public class QuizRepository implements IHistoryStorage, IQuizApiClient {
     }
 
     @Override
-    public void save(QuizResult result) {
-
-    }
-
-    @Override
-    public void delete(QuizResult result) {
-
-    }
-
-    @Override
     public void deleteAll() {
 
     }
 
     @Override
-    public QuizResult get(int id) {
+    public LiveData<List<QuizResult>> getAll() {
         return null;
     }
 
     @Override
-    public LiveData<List<QuizResult>> getAll() {
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public QuizResult getQuizResult(int id) {
         return null;
     }
 

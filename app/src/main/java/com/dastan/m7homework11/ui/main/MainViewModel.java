@@ -69,14 +69,4 @@ public class MainViewModel extends ViewModel {
     protected void onCleared() {
         super.onCleared();
     }
-
-    //    public void increment(){
-//        count++;
-//        counter.setValue(count);
-//    }
-//
-//    public void decrement(){
-//        count--;
-//        counter.setValue(count);
-//    }
 }
