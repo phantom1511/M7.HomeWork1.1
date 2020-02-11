@@ -44,26 +44,21 @@ public class MainFragment extends CoreFragment {
     private NiceSpinner spinnerCategory, spinnerDifficulty;
     private List<String> categoryList, difficultyList;
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initViews(view);
+        initListeners();
+        setSpinner(getResources().getStringArray(R.array.categories_list), spinnerCategory);
+        setSpinner(getResources().getStringArray(R.array.difficult_list), spinnerDifficulty);
+    }
 
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main;
     }
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_main, container, false);
-
-        initViews();
-        initListeners();
-        setSpinner(getResources().getStringArray(R.array.categories_list), spinnerCategory);
-        setSpinner(getResources().getStringArray(R.array.difficult_list), spinnerDifficulty);
-
-        return view;
-    }
-
-    private void initViews() {
+    private void initViews(View view) {
         startBtn = view.findViewById(R.id.btnStart);
         questionAmount = view.findViewById(R.id.tvNum);
         seekBar = view.findViewById(R.id.seekBar);

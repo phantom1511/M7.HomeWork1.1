@@ -37,6 +37,9 @@ public class HistoryFragment extends CoreFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initViews(view);
+        setRecyclerView();
+        historyAdapter.setList(new ArrayList<>());
     }
 
     @Override
@@ -44,25 +47,11 @@ public class HistoryFragment extends CoreFragment {
         return R.layout.fragment_history;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_history, container, false);
-
-//        result = view.findViewById(R.id.tvHistory);
-
-        setRecyclerView();
-        historyAdapter.setList(new ArrayList<>());
-
-        return view;
-    }
-
-    private void initViews(){
+    private void initViews(View view){
         recyclerView = view.findViewById(R.id.rvHistoryFragment);
     }
 
     private void setRecyclerView() {
-        initViews();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
