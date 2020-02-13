@@ -4,15 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.dastan.m7homework11.QuizApp;
+import com.dastan.m7homework11.data.model.History;
+
+import java.util.List;
+
 public class HistoryViewModel extends ViewModel {
-    private MutableLiveData<String> mText;
-
-    public HistoryViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("Map");
-    }
-
-    public LiveData<String> getText(){
-        return mText;
-    }
+    LiveData<List<History>> historyLiveData = QuizApp.historyStorage.getAllHistory();
 }

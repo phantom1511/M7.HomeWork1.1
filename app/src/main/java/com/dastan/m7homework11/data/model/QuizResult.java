@@ -1,17 +1,31 @@
 package com.dastan.m7homework11.data.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.dastan.m7homework11.data.db.QuestionsConverter;
+import com.dastan.m7homework11.data.db.TimestampConverter;
 
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@Entity(tableName = "quiz_result")
 public class QuizResult {
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name = "category")
     private String category;
+    @ColumnInfo(name = "difficulty")
     private String difficulty;
+    @ColumnInfo(name = "questions")
+    @TypeConverters({QuestionsConverter.class})
     private List<Question> questions;
+    @ColumnInfo(name = "correct_answer_amount")
     private int correctAnswersAmount;
+    @ColumnInfo(name = "created_at")
+    @TypeConverters({TimestampConverter.class})
     private Date createdAt;
 
     public QuizResult(int id, String category, String difficulty, List<Question> questions, int correctAnswersAmount, Date createdAt) {

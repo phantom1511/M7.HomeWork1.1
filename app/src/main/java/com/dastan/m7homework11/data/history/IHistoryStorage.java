@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.dastan.m7homework11.data.model.History;
 import com.dastan.m7homework11.data.model.QuizResult;
 import com.dastan.m7homework11.ui.result.ResultActivity;
 
@@ -19,8 +20,9 @@ public interface IHistoryStorage {
     int saveQuizResult(QuizResult quizResult);
 
     LiveData<List<QuizResult>> getAll();
+    LiveData<List<History>> getAllHistory();
 
-    void delete(int id);
+    void delete(QuizResult result);
 
     void deleteAll();
 //    @Insert

@@ -95,7 +95,14 @@ public class QuizViewModel extends ViewModel {
 
 
     void onBackPressed() {
-        currentPosition.setValue(--count);
+        Integer currentPos = currentPosition.getValue();
+        if (currentPos != null){
+            if (currentPos == 0){
+                finishEvent.call();
+            }
+        } else {
+            currentPosition.setValue(--count);
+        }
     }
 
     void onSkipClick() {

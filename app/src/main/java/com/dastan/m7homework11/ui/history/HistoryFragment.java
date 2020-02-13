@@ -9,15 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.core.CoreFragment;
+import com.dastan.m7homework11.data.model.History;
 import com.dastan.m7homework11.ui.main.MainViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HistoryFragment extends CoreFragment {
@@ -63,6 +66,14 @@ public class HistoryFragment extends CoreFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
+        historyViewModel.historyLiveData.observe(getActivity(), new Observer<List<History>>() {
+            @Override
+            public void onChanged(List<History> histories) {
+                if (histories != null){
+                    historyAdapter.setList(histories);
+                }
+            }
+        });
         //mainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
 
 //        mainViewModel.counter.observe(this, new Observer<Integer>() {

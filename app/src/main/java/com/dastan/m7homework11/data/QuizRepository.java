@@ -3,6 +3,7 @@ package com.dastan.m7homework11.data;
 import androidx.lifecycle.LiveData;
 
 import com.dastan.m7homework11.data.history.IHistoryStorage;
+import com.dastan.m7homework11.data.model.History;
 import com.dastan.m7homework11.data.model.Question;
 import com.dastan.m7homework11.data.model.QuizResult;
 import com.dastan.m7homework11.data.remote.IQuizApiClient;
@@ -78,7 +79,12 @@ public class QuizRepository implements IHistoryStorage, IQuizApiClient {
     }
 
     @Override
-    public void delete(int id) {
+    public LiveData<List<History>> getAllHistory() {
+        return historyStorage.getAllHistory();
+    }
+
+    @Override
+    public void delete(QuizResult result) {
 
     }
 
@@ -89,6 +95,6 @@ public class QuizRepository implements IHistoryStorage, IQuizApiClient {
 
     @Override
     public int saveQuizResult(QuizResult result) {
-        return 0;
+        return historyStorage.saveQuizResult(result);
     }
 }
