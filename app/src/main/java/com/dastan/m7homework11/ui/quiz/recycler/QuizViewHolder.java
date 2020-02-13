@@ -3,11 +3,11 @@ package com.dastan.m7homework11.ui.quiz.recycler;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dastan.m7homework11.R;
@@ -29,8 +29,8 @@ public class QuizViewHolder extends RecyclerView.ViewHolder {
     private int position;
     private Question question;
 
-    private ConstraintLayout multyBtnContainer;
-    private ConstraintLayout btnContainer;
+    private LinearLayout multiBtnContainer;
+    private LinearLayout btnContainer;
 
     public QuizViewHolder(@NonNull View view, Listener listener) {
         super(view);
@@ -50,7 +50,7 @@ public class QuizViewHolder extends RecyclerView.ViewHolder {
         exBtn1 = itemView.findViewById(R.id.btnExtra1);
         exBtn2 = itemView.findViewById(R.id.btnExtra2);
 
-        multyBtnContainer = itemView.findViewById(R.id.btnContainerMulti);
+        multiBtnContainer = itemView.findViewById(R.id.btnContainerMulti);
         btnContainer = itemView.findViewById(R.id.btnContainer);
     }
 
@@ -106,7 +106,7 @@ public class QuizViewHolder extends RecyclerView.ViewHolder {
         questionText.setText(Html.fromHtml(question.getQuestion()));
         if (question.getType() == EType.MULTIPLE){
             btnContainer.setVisibility(View.INVISIBLE);
-            multyBtnContainer.setVisibility(View.VISIBLE);
+            multiBtnContainer.setVisibility(View.VISIBLE);
             btn1.setText(Html.fromHtml(question.getAnswers().get(0)));
             btn2.setText(Html.fromHtml(question.getAnswers().get(1)));
             btn3.setText(Html.fromHtml(question.getAnswers().get(2)));

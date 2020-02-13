@@ -118,7 +118,7 @@ public class MainFragment extends CoreFragment {
         } else {
             category = spinnerCategory.getSelectedIndex() + 8;
         }
-        QuizActivity.start(getContext(), amount, category, difficulty);
+        QuizActivity.start(getActivity(), amount, category, difficulty);
         Log.e("ron", amount + " " + category + " " + difficulty);
     }
 

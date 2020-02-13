@@ -8,6 +8,7 @@ import com.dastan.m7homework11.core.SingleLiveEvent;
 import com.dastan.m7homework11.data.model.Question;
 import com.dastan.m7homework11.data.model.QuizResult;
 import com.dastan.m7homework11.data.remote.IQuizApiClient;
+import com.dastan.m7homework11.ui.result.ResultActivity;
 
 import java.util.Date;
 import java.util.List;
@@ -26,13 +27,17 @@ public class QuizViewModel extends ViewModel {
 
     Integer count;
 
+    public QuizViewModel() {
+        currentPosition.setValue(0);
+        count = 0;
+    }
+
     void fetchQuestions(int amount, Integer category, String difficulty) {
         QuizApp.quizApiClient.getQuestions(amount, category, difficulty, new IQuizApiClient.QuestionsCallback() {
             @Override
             public void onSuccess(List<Question> result) {
                 QuizViewModel.this.questions.postValue(result);
                 mQuestion = result;
-                questions.setValue(mQuestion);
                 currentPosition.setValue(0);
             }
 
@@ -41,8 +46,6 @@ public class QuizViewModel extends ViewModel {
 
             }
         });
-
-        finishEvent.call();
 
     }
 
@@ -72,22 +75,19 @@ public class QuizViewModel extends ViewModel {
         int resultId = QuizApp.historyStorage.saveQuizResult(result);
         finishEvent.call();
         openResultEvent.setValue(resultId);
-
-        finishEvent.call();
-        openResultEvent.setValue(resultId);
     }
 
-    private String getCategory(){
+    private String getCategory() {
         String category = "Mixed";
-        if (mQuestion.get(0).getCategory().equals(mQuestion.get(1).getCategory())){
+        if (mQuestion.get(0).getCategory().equals(mQuestion.get(1).getCategory())) {
             category = mQuestion.get(0).getCategory();
         }
         return category;
     }
 
-    private String getDifficulty(){
+    private String getDifficulty() {
         String category = "All";
-        if (mQuestion.get(0).getDifficulty().equals(mQuestion.get(1).getDifficulty())){
+        if (mQuestion.get(0).getDifficulty().equals(mQuestion.get(1).getDifficulty())) {
             category = mQuestion.get(0).getDifficulty().toString();
         }
         return category;
@@ -99,8 +99,12 @@ public class QuizViewModel extends ViewModel {
     }
 
     void onSkipClick() {
-        currentPosition.setValue(++count);
         mQuestion.get(currentPosition.getValue()).setSelectedAnswerPosition(5);
+        if (count + 1 == mQuestion.size()) {
+            openResultEvent.call();
+        } else {
+            currentPosition.setValue(++count);
+        }
     }
 
     void onAnswerClick(int position, int selectedAnswerPosition) {
@@ -108,6 +112,7 @@ public class QuizViewModel extends ViewModel {
         if (mQuestion.size() > position && position >= 0) {
             mQuestion.get(position)
                     .setSelectedAnswerPosition(selectedAnswerPosition);
+
 
             questions.setValue(mQuestion);
 
@@ -119,11 +124,6 @@ public class QuizViewModel extends ViewModel {
         }
     }
 
-
-    public QuizViewModel() {
-        currentPosition.setValue(0);
-        count = 0;
-    }
 
     public void nextPage() {
         currentPosition.setValue(++count);

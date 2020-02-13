@@ -3,6 +3,7 @@ package com.dastan.m7homework11.ui.quiz;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
     private static String EXTRA_DIFFICULTY = "difficulty";
 
     private int amount;
-    private Integer categoty;
+    private Integer category;
     private String difficulty;
     private TextView progressAmountText;
     private ProgressBar progressBar;
@@ -54,13 +55,7 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
         initViews();
         initListeners();
         setRecyclerView();
-
-        quizViewModel.questions.observe(this, new Observer<List<Question>>() {
-            @Override
-            public void onChanged(List<Question> questions) {
-                titleCategory.setText(questions.get(0).getCategory());
-            }
-        });
+        Log.e("ron", "create");
 
         quizViewModel.finishEvent.observe(this, aVoid -> finish());
         quizViewModel.openResultEvent.observe(this, integer -> ResultActivity.start(this, integer));
@@ -95,15 +90,16 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
 
     private void getQuestion() {
         amount = getIntent().getIntExtra(EXTRA_AMOUNT, 5);
-        categoty = getIntent().getIntExtra(EXTRA_CATEGORY, +8);
+        category = getIntent().getIntExtra(EXTRA_CATEGORY, +8);
         difficulty = getIntent().getStringExtra(EXTRA_DIFFICULTY);
 
-        if (categoty == 0) {
-            categoty = null;
+        if (category == 0) {
+            category = null;
         }
 
         quizAdapter.setList(new ArrayList<>());
-        quizViewModel.fetchQuestions(amount, categoty, difficulty);
+        if (category == 8) category = null;
+        quizViewModel.fetchQuestions(amount, category, difficulty);
 
         quizViewModel.questions.observe(this, list -> {
             questions = list;
@@ -140,13 +136,14 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
         quizViewModel.currentPosition.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
-                recyclerView.scrollToPosition(integer - 1);
+                recyclerView.scrollToPosition(integer);
                 progressAmountText.setText(integer + "/" + amount);
-                progressBar.setProgress(integer);
+                progressBar.setProgress(integer + 1);
                 progressBar.setMax(amount);
 
-                if (questions.size() > 0)
-                    titleCategory.setText(questions.get(integer - 1).getCategory());
+                titleCategory.setText(questions.get(integer).getCategory());
+//                if (questions.size() > 0)
+//                    titleCategory.setText(questions.get(integer - 1).getCategory());
             }
         });
     }
