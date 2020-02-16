@@ -22,7 +22,7 @@ public interface IHistoryStorage {
     LiveData<List<QuizResult>> getAll();
     LiveData<List<History>> getAllHistory();
 
-    void delete(QuizResult result);
+    void delete(int id);
 
     void deleteAll();
 //    @Insert

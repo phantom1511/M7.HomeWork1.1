@@ -5,15 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dastan.m7homework11.QuizApp;
 import com.dastan.m7homework11.R;
 import com.dastan.m7homework11.core.CoreFragment;
 import com.dastan.m7homework11.data.model.History;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HistoryFragment extends CoreFragment {
+public class HistoryFragment extends CoreFragment implements HistoryAdapter.HistoryListener{
 
     private TextView result;
     private MainViewModel mainViewModel;
@@ -31,6 +34,7 @@ public class HistoryFragment extends CoreFragment {
     private HistoryAdapter historyAdapter;
     private View view;
     private HistoryViewModel historyViewModel;
+    private List<History> currentHistories;
 
     public static HistoryFragment newInstance(){
         return new HistoryFragment();
@@ -41,7 +45,7 @@ public class HistoryFragment extends CoreFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
-        setRecyclerView();
+        setRecyclerView(view);
         historyAdapter.setList(new ArrayList<>());
     }
 
@@ -54,11 +58,11 @@ public class HistoryFragment extends CoreFragment {
         recyclerView = view.findViewById(R.id.rvHistoryFragment);
     }
 
-    private void setRecyclerView() {
+    private void setRecyclerView(View view) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        historyAdapter = new HistoryAdapter();
+        historyAdapter = new HistoryAdapter(this);
         recyclerView.setAdapter(historyAdapter);
     }
 
@@ -71,9 +75,11 @@ public class HistoryFragment extends CoreFragment {
             public void onChanged(List<History> histories) {
                 if (histories != null){
                     historyAdapter.setList(histories);
+                    currentHistories = histories;
                 }
             }
         });
+
         //mainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
 
 //        mainViewModel.counter.observe(this, new Observer<Integer>() {
@@ -83,5 +89,30 @@ public class HistoryFragment extends CoreFragment {
 //                result.setText(integer.toString());
 //            }
 //        });
+    }
+
+    private void showPopUp(View v, int position){
+        PopupMenu popupMenu = new PopupMenu(getContext(),v);
+        popupMenu.inflate(R.menu.popup_menu);
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()){
+                case R.id.delete:
+                    QuizApp.quizDatabase.historyDao().deleteById(currentHistories.get(position).getId());
+                    Toast.makeText(getActivity(),"delete",Toast.LENGTH_LONG).show();
+                    return true;
+                case R.id.share:
+                    Toast.makeText(getActivity(),"share",Toast.LENGTH_LONG).show();
+                    return true;
+            }
+            return false;
+        });
+
+        popupMenu.show();
+    }
+
+    @Override
+    public void onDotsClick(int position, View v) {
+        showPopUp(v,position);
     }
 }

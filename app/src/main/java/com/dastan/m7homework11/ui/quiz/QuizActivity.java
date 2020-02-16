@@ -1,5 +1,6 @@
 package com.dastan.m7homework11.ui.quiz;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -109,6 +110,7 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -163,6 +165,11 @@ public class QuizActivity extends AppCompatActivity implements QuizViewHolder.Li
             MainActivity.start(this);
             finish();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        quizViewModel.onBackPressed();
     }
 
     @Override

@@ -52,8 +52,8 @@ public class HistoryStorage implements IHistoryStorage {
     }
 
     @Override
-    public void delete(QuizResult result) {
-        dao.delete(result);
+    public void delete(int id) {
+        dao.deleteById(id);
     }
 
     @Override

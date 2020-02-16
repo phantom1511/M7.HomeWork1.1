@@ -12,4 +12,5 @@
     <color name="colorBg">#D2CFCF</color>
     <color name="colorSkipBtn">#FF6581</color>
     <color name="colorFinishBtn">#4CE2A7</color>
+    <color name="colorClean">#BE52F2</color>
 </resources>

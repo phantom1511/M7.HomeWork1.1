@@ -18,4 +18,182 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettings" />
+
+    <RelativeLayout
+        android:id="@+id/relative_first"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_one">
+
+
+        <TextView
+            android:id="@+id/settings_share"
+            style="@style/RegularText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center|start"
+            android:text="Share this app"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/settings_img_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_vector"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_second"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/relative_first" />
+
+
+    <RelativeLayout
+        android:id="@+id/relative_second"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_second">
+
+
+        <TextView
+            android:id="@+id/settings_rate_us"
+            style="@style/RegularText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center|start"
+            android:text="Rate us"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/settings_img_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_vector"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_third"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/relative_second" />
+
+    <RelativeLayout
+        android:id="@+id/relative_third"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_third">
+
+
+        <TextView
+            android:id="@+id/settings_leave_feedback"
+            style="@style/RegularText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center|start"
+            android:text="Leave feedback"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/settings_img_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_vector" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_fourth"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/relative_third" />
+
+
+    <RelativeLayout
+        android:id="@+id/relative_fourth"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_fourth">
+
+
+        <TextView
+            android:id="@+id/settings_clear_history"
+            style="@style/RegularText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center|start"
+            android:text="Clear History"
+            android:textColor="@color/colorClean"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/settings_img_fourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_vector" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_fifth"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/relative_fourth" />
+
+
+    <TextView
+        android:id="@+id/quiz_version"
+        style="@style/RegularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v 1.0.0"
+        android:textColor="@color/light_gray"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_fifth" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
